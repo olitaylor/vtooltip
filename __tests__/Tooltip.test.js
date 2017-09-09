@@ -1,13 +1,13 @@
-import { ExampleComponent } from '../src';
+import { Tooltip } from '../src';
 import Vue from 'vue/dist/vue.js';
 
-describe('ExampleComponent', () => {
-    Vue.component('example-component', ExampleComponent);
+describe('can mount', () => {
+    Vue.component('tooltip', Tooltip);
 
     beforeEach(() => {
         document.body.innerHTML = `
             <div id="app">
-                <example-component></example-component>
+                <tooltip></tooltip>
             </div>
         `;
     });

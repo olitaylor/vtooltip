@@ -1,8 +1,8 @@
 import Vue from 'vue';
-import { ExampleComponent } from '../src';
+import { Tooltip } from '../src';
 
 new Vue({
-    components: { ExampleComponent },
+    components: { Tooltip },
 
     el: '#app',
 });
