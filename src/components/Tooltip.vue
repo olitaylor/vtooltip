@@ -2,10 +2,11 @@
     <span class="vtooltip-wrapper">
         <slot></slot>
 
-        <span 
-        :style="{ color: color, backgroundColor: bgcolor, fontSize: textsize + 'px' }"
-        :class="['vtooltip', always ? 'vtooltip-always' : '', 'vtooltip-' + position, rounded ? 'vtooltip-rounded' : '']">
-        {{ text }}<i :style="{'border-bottom-color': bgcolor, 'border-top-color': bgcolor }"></i></span>
+        <span
+            :style="{ color: color, backgroundColor: bgcolor, fontSize: textsize + 'px' }"
+            :class="['vtooltip', always ? 'vtooltip-always' : '', 'vtooltip-' + position, rounded ? 'vtooltip-rounded' : '']">
+            {{ text }}<i :style="{'border-bottom-color': bgcolor, 'border-top-color': bgcolor }"></i>
+        </span>
     </span>
 </template>
 
@@ -65,6 +66,11 @@
     transform: translateX(-50%) translateY(5px) !important;
 }
 .vtooltip {
+	margin: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
     position: absolute;
     padding: 8px 10px;
     line-height: 12px;
