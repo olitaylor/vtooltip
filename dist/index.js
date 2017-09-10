@@ -4,9 +4,9 @@
 	else if(typeof define === 'function' && define.amd)
 		define([], factory);
 	else if(typeof exports === 'object')
-		exports["vue-tabs"] = factory();
+		exports["vtooltip"] = factory();
 	else
-		root["vue-tabs"] = factory();
+		root["vtooltip"] = factory();
 })(this, function() {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -111,13 +111,49 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-    props: {},
-
-    data: () => ({}),
-
-    computed: {}
+    props: {
+        always: {
+            type: Boolean,
+            default: false
+        },
+        rounded: {
+            default: false
+        },
+        text: {
+            type: String,
+            required: true
+        },
+        color: {
+            type: String,
+            default: '#ffffff'
+        },
+        bgcolor: {
+            type: String,
+            default: '#383838'
+        },
+        textsize: {
+            type: Number,
+            default: 13
+        },
+        position: {
+            type: String,
+            validator(value) {
+                if (['top', 'bottom'].indexOf(value) >= 0) {
+                    return true;
+                }
+                console.warn('Position accepted values: top, bottom, left, right');
+                return false;
+            },
+            default: 'bottom'
+        }
+    }
 });
 
 /***/ }),
@@ -148,7 +184,7 @@ exports = module.exports = __webpack_require__(4)(undefined);
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".vtooltip-wrapper{position:relative}.vtooltip-wrapper:hover>.vtooltip{opacity:1;transition-delay:.1s;transform:translateX(-50%) translateY(5px)}.vtooltip-always{opacity:1!important;transition-delay:.1s;transform:translateX(-50%) translateY(5px)!important}.vtooltip{position:absolute;padding:8px 10px;line-height:12px;white-space:nowrap;box-shadow:4px 4px 8px rgba(0,0,0,.3);top:100%;left:50%;z-index:1000000;pointer-events:none;opacity:0;transition:.3s ease;transition-delay:.1s;transform:translateX(-50%) translateY(-8px)}.vtooltip i{position:absolute;background:0 0;border:6px solid transparent;z-index:1000001;left:calc(50% - 6px)}.vtooltip-top{top:-200%}.vtooltip-rounded{border-radius:10px}.vtooltip-top i{top:auto;border-bottom:none;bottom:-6px}.vtooltip-bottom i{top:auto;border-top:none;top:-6px}", ""]);
 
 // exports
 
@@ -337,7 +373,21 @@ module.exports = function normalizeComponent (
 /***/ (function(module, exports) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return _c('div', [_vm._v("\n    I am an example component\n")])
+  return _c('span', {
+    staticClass: "vtooltip-wrapper"
+  }, [_vm._t("default"), _vm._v(" "), _c('span', {
+    class: ['vtooltip', _vm.always ? 'vtooltip-always' : '', 'vtooltip-' + _vm.position, _vm.rounded ? 'vtooltip-rounded' : ''],
+    style: ({
+      color: _vm.color,
+      backgroundColor: _vm.bgcolor,
+      fontSize: _vm.textsize + 'px'
+    })
+  }, [_vm._v("\n    " + _vm._s(_vm.text)), _c('i', {
+    style: ({
+      'border-bottom-color': _vm.bgcolor,
+      'border-top-color': _vm.bgcolor
+    })
+  })])], 2)
 },staticRenderFns: []}
 
 /***/ }),
