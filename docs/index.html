@@ -1,40 +1,58 @@
 <html>
 <head>
     <title>vtooltip</title>
-
     <style>
-
-        *,
-        *:after,
-        *:before {
-            box-sizing: border-box;
-            margin: 0;
+        body, html {
             padding: 0;
+            margin: 0;
         }
-
-        body {
-            background-color: #efefef;
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
-            font-size: 16px;
-            padding: 2em;
+        #app {
+            font-family: Avenir,Helvetica,Arial,sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            text-align: center;
+            color: #2c3e50;
+            margin-top: 20px;
         }
-
-        .page {
-            background-color: #fff;
-            max-width: 66em;
-            margin: 0 auto;
-            padding: 4em 2em;
+        h1,  h2 {
+            font-weight: 400;
         }
-
+        .demo {
+            background-color: #939393;
+            padding: 10px 10px 30px;
+            color: #fff;
+        }
+        a {
+            color: blue;
+            text-decoration: underline;
+        }
+        .button {
+            padding: 10px;
+            border-radius: 10px;
+            background-color: white;
+            border: none;
+        }
     </style>
-
 </head>
 <body>
-<div id="app" class="page">
-    <div>
-        <Tooltip></Tooltip>
+    <div id="app">
+        <div class="intro">
+            <Tooltip text="Vue.js logo"><img alt="vue logo" src="./logo.png" style="width:100px"></Tooltip>
+            <h1>vtooltip</h1> 
+            <h2>A native Vue.js tooltip component</h2>
+        </div>
+        <div class="demo">
+            <Tooltip text="A wild tooltip appears" position="top"><button class="button">Hover over me</button></Tooltip>
+            <p><Tooltip text="Default tooltip">Hover here for a default tooltip.</Tooltip></p>
+            <p>Hover <Tooltip text="Top tooltip" position="top"><a nohref>here</a></Tooltip> for a tooltip above the text.</p>
+            <p><Tooltip text="Custom colors" bgcolor="red" color="white">Hover here for a tooltip with custom colors.</Tooltip></p>
+            <p><Tooltip text="Custom font-size" :textsize="19">Hover here for a tooltip with custom font size.</Tooltip></p>
+            <p><Tooltip text="Rounded tooltip" :rounded="true">Hover here for a rounded tooltip.</Tooltip></p>
+            <p><Tooltip text="This tooltip is always showing" :textsize="14" :always="true">This tooltip is always showing.</Tooltip></p>
+        </div>
     </div>
-</div>
-<script src="/build/app.js"></script>
+    <script src="/build/app.js"></script>
 </body>
 </html>
+
+

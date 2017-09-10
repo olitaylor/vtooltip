@@ -3,6 +3,5 @@ import { Tooltip } from '../src';
 
 new Vue({
     components: { Tooltip },
-
     el: '#app',
 });
