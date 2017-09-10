@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/olitaylor/vtooltip.svg?branch=master)](https://travis-ci.org/olitaylor/vtooltip)
+
 # vtooltip
 
 > Simple native Vue.js tooltip component
